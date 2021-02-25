@@ -23,7 +23,7 @@ function TodoApp() {
       }}
       elevation={0}
     >
-      <AppBar color="primary" posotion="static" style={{ height: "64px" }}>
+      <AppBar color="primary" position="static" style={{ height: "60px" }}>
         <ToolBar>
           <Typography color="inherit">TODO APP</Typography>
         </ToolBar>
