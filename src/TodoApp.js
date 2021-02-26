@@ -15,10 +15,7 @@ function TodoApp() {
   ];
   const [todos, setTodos] = useState(initialTodos);
   const addTodo = (newTodoText) => {
-    setTodos([
-      ...todos,
-      { id: 4, task: "connecting TodoForm", completed: false },
-    ]);
+    setTodos([...todos, { id: 4, task: newTodoText, completed: false }]);
   };
   return (
     <Paper
@@ -35,8 +32,12 @@ function TodoApp() {
           <Typography color="inherit">TODO APP</Typography>
         </ToolBar>
       </AppBar>
-      <TodoForm addTodo={addTodo} />
-      <TodoList todos={todos} />
+      <Grid container justify="center" style={{ marginTop: "1rem" }}>
+        <Grid item xs={11} md={8} lg={4}>
+          <TodoForm addTodo={addTodo} />
+          <TodoList todos={todos} />
+        </Grid>
+      </Grid>
     </Paper>
   );
 }
