@@ -6,7 +6,7 @@ import useInputState from "./hooks/useInputState";
 function TodoForm({ addTodo }) {
   const [value, handleChange, reset] = useInputState("");
   return (
-    <Paper>
+    <Paper style={{ margin: "1rem 0", padding: "0 1rem" }}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -14,7 +14,13 @@ function TodoForm({ addTodo }) {
           reset();
         }}
       >
-        <Textfield value={value} onChange={handleChange} />
+        <Textfield
+          value={value}
+          onChange={handleChange}
+          margin="normal"
+          label="Add new Todo"
+          fullWidth
+        />
       </form>
     </Paper>
   );
