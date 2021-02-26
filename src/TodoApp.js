@@ -11,7 +11,7 @@ function TodoApp() {
   const initialTodos = [
     { id: 1, task: "Piano practice", completed: false },
     { id: 1, task: "Violin practice", completed: false },
-    { id: 1, task: "Coding practice", completed: false },
+    { id: 1, task: "Coding practice", completed: true },
   ];
   const [todos, setTodos] = useState(initialTodos);
   const addTodo = (newTodoText) => {
