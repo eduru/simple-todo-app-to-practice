@@ -10,9 +10,9 @@ import { uuid } from "uuidv4";
 
 function TodoApp() {
   const initialTodos = [
-    { id: 1, task: "Piano practice", completed: false },
-    { id: 2, task: "Violin practice", completed: false },
-    { id: 3, task: "Coding practice", completed: true },
+    { id: uuid(), task: "Piano practice", completed: false },
+    { id: uuid(), task: "Violin practice", completed: false },
+    { id: uuid(), task: "Coding practice", completed: true },
   ];
   const [todos, setTodos] = useState(initialTodos);
   const addTodo = (newTodoText) => {
@@ -20,6 +20,12 @@ function TodoApp() {
   };
   const removeTodo = (todoId) => {
     const updatedTodos = todos.filter((todo) => todo.id !== todoId);
+    setTodos(updatedTodos);
+  };
+  const toggleTodo = (todoId) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
+    );
     setTodos(updatedTodos);
   };
 
@@ -41,7 +47,11 @@ function TodoApp() {
       <Grid container justify="center" style={{ marginTop: "1rem" }}>
         <Grid item xs={11} md={8} lg={4}>
           <TodoForm addTodo={addTodo} />
-          <TodoList todos={todos} removeTodo={removeTodo} />
+          <TodoList
+            todos={todos}
+            removeTodo={removeTodo}
+            toggleTodo={toggleTodo}
+          />
         </Grid>
       </Grid>
     </Paper>
